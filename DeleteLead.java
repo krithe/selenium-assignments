@@ -1,31 +1,19 @@
-package Assisnments;
+package week5;
 
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class DeleteLead {
-
-	public static void main(String[] args) throws InterruptedException {
-		WebDriverManager.chromedriver().setup();
-		ChromeDriver driver = new ChromeDriver();
-		 driver.manage().window().maximize();
-        driver.get("http://leaftaps.com/opentaps/control/main");
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+public class DeleteLead extends BaseTest {
+	@Test(enabled = false)
+	public void deleteLead() throws InterruptedException {
+	        
         
-       driver.findElement(By.id("username")).sendKeys("DemoSalesManager");
-        driver.findElement(By.id("password")).sendKeys("crmsfa");
-        driver.findElement(By.className("decorativeSubmit")).click();
-        String text = driver.findElement(By.tagName("h2")).getText();
-       		System.out.println(text);
-        driver.findElement(By.linkText("CRM/SFA")).click();
-        
-        //click leads link
-        driver.findElement(By.linkText("Leads")).click();
         
         //click find leads
         driver.findElement(By.linkText("Find Leads")).click();
@@ -68,9 +56,7 @@ public class DeleteLead {
         	System.out.println("Lead is deleted");
         else
         	System.out.println("Lead is not deleted");
-        
-        //Close the browser
-          driver.close();
+      
 	}
 
 }
